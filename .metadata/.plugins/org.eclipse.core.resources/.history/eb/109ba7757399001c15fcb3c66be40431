@@ -1,0 +1,124 @@
+package com.app.calculator;
+
+import java.util.Scanner;
+
+public class Calculator {
+
+	private static float num1 = 0;
+	private static float num2 = 0;
+	private static float output = 0;
+
+	static Scanner sc = new Scanner(System.in);
+
+	private static void add(float a, float b) {
+		output = a + b;
+		System.out.println("Result of addition is :" + output);
+	}
+
+	private static void sub(float a, float b) {
+		output = a - b;
+		System.out.println("Result of subtraction is :" + output);
+	}
+
+	private static void mul(float a, float b) {
+		output = a * b;
+		System.out.println("Result of multiplication is :" + output);
+	}
+
+	private static void div(float a, float b) {
+		if (b == 0) {
+			System.out.println("can't divide by zero ");
+			System.out.println("please enter second number again");
+			b = sc.nextInt();
+		}
+		output = a / b;
+		System.out.println("Result of divisione is :" + output);
+	}
+
+	public static void main(String[] args) {
+		// String userInput="";
+		int option = 0;
+		if (option != 5) {
+			System.out.println("*********************************");
+			System.out.println("Welcome to calculator application");
+			System.out.println("*********************************");
+			System.out.println("Please select the operations to do:");
+			System.out.println("Choose 1 for addition");
+			System.out.println("Choose 2 for subtraction");
+			System.out.println("Choose 3 for multiplication");
+			System.out.println("Choose 4 for division");
+			System.out.println("Choose 5 for Quit application");
+		}
+		String userInput = "";
+
+		l1: while (option != 5) {
+			userInput = sc.nextLine();
+			//System.out.println("user input " + userInput);
+			/*
+			 * System.out.println("in while again");
+			 * System.out.println("*********************************");
+			 * System.out.println("Welcome to calculator application");
+			 * System.out.println("*********************************");
+			 * System.out.println("Please select the operations to do:");
+			 * System.out.println("Choose 1 for addition");
+			 * System.out.println("Choose 2 for subtraction");
+			 * System.out.println("Choose 3 for multiplication");
+			 * System.out.println("Choose 4 for division");
+			 * System.out.println("in while again");
+			 */
+			// System.out.println("Choose 5 for Quit application");
+
+			// Defining scanner
+
+			try {
+				option = Integer.parseInt(userInput);
+				if (option == 5) {
+					System.out.println("*********************Exiting Application ****************");
+					break l1;
+				} else if (option>5 && option <1) {
+					System.out.println("option mismatched");
+					//break l1;
+
+				}
+				if(option==1 || option==2 || option==3 || option==4)
+				{System.out.println("Enter first number");
+				num1 = sc.nextInt();
+				System.out.println("Enter second number");
+				num2 = sc.nextInt();
+				}
+				if (option == 1) {
+					add(num1, num2);
+					break l1;
+
+				} else if (option == 2) {
+					sub(num1, num2);
+					break l1;
+
+				} else if (option == 3) {
+					mul(num1, num2);
+					break l1;
+
+				} else if (option == 4) {
+					div(num1, num2);
+					break l1;
+
+				}
+
+			} catch (Exception exp) {
+				System.out.println("Please enter a valid number");
+				break l1	;		
+}
+
+		}
+	}
+
+}
+/*
+ * As a developer, write a Java code to create a calculator to perform the four
+ * basic arithmetic operations (addition, subtraction, multiplication, and
+ * division).
+ * 
+ * Core Java concepts: Variables, data types, operators, type casting, control
+ * statements, class, objects, access specifiers, and core keywords like final,
+ * this, and static
+ */
